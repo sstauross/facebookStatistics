@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/sstauross/facebookStatistics/issues"
   },
-  "homepage": "https://github.com/sstauross/facebookStatistics#readme"
+  "homepage": "https://github.com/sstauross/facebookStatistics#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "https": "^1.0.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0",
+    "swig": "^1.4.2"
+  }
 }
