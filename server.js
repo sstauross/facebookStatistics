@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var swig = require('swig');
-var passportConfig = require('./config/passport');
+var passportConfig = require('./app/passportFBAuth');
 
 app.use(express.static(__dirname + '/public'));
 
@@ -19,7 +19,7 @@ app.set('views', __dirname + "/views");
 // Cookies and Session
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(session({
-    secret: 'ilovescotchscotchyscotchscotch',
+    secret: 'donttellyoursecrets',
     resave: true,
     saveUninitialized: true
 })); 

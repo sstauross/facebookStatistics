@@ -1,5 +1,5 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
-var configAuth = require('./auth'); // load the auth variables
+var config = require('../config/config'); // load the auth variables
 
 module.exports = function(passport) {
   
@@ -17,9 +17,9 @@ module.exports = function(passport) {
 
   passport.use(new FacebookStrategy({
     // pull in our app id and secret from our auth.js file
-    clientID        : configAuth.facebookAuth.clientID,
-    clientSecret    : configAuth.facebookAuth.clientSecret,
-    callbackURL     : configAuth.facebookAuth.callbackURL
+    clientID        : config.facebookAuth.clientID,
+    clientSecret    : config.facebookAuth.clientSecret,
+    callbackURL     : config.facebookAuth.callbackURL
   },
   function(token, refreshToken, profile, done) { // facebook will send back the token and profile
       // asynchronous

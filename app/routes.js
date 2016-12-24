@@ -1,3 +1,5 @@
+var fb = require('./facebookGateway');
+
 module.exports = function(app, passport) {
 
   // route for home page
@@ -12,7 +14,8 @@ module.exports = function(app, passport) {
   });
 
   // route for showing the profile page
-  app.get('/profile', isLoggedIn, function(req, res) {       
+  app.get('/profile', isLoggedIn, function(req, res) {
+    var data = fb.getPageData(req.user.facebook.token);
     res.render('profile.html', {
         user : req.user // get the user out of session and pass to template
     });
@@ -21,7 +24,7 @@ module.exports = function(app, passport) {
   // ======== FACEBOOK ROUTES ============
 
   // route for facebook authentication and login
-  app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+  app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['user_friends', 'manage_pages', 'read_insights', 'user_posts'] }));
 
   // handle the callback after facebook has authenticated the user
   app.get('/auth/facebook/callback',
